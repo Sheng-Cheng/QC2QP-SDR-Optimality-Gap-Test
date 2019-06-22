@@ -1,11 +1,11 @@
-# QC2QP-Semidefinite-Relaxation-Tightness-Test
-This is a MATLAB script for testing whether a quadratic program with two quadratic constraints (QC2QP) has a tight semi-definite relaxation. If so, an optimal solution of the QC2QP can be obtained by the relaxation. The details of this test and the methematical proof behind can be found here:
+# QC2QP-Semidefinite-Relaxation-Optimality-Gap-Test
+This is a MATLAB script for testing whether a quadratic program with two quadratic constraints (QC2QP) can be solved by its semidefinite relaxation, in which case we say there is no optimality gap. The details of this test and the methematical proof behind can be found here:
 
 Please cite (pending)
 
 ## How to use this test
 
-Just download the code and run [QC2QP_SDR_tightness_test.m](https://github.com/Sheng-Cheng/QC2QP-Strong-Duality-Test/blob/master/QC2QP_SDR_tightness_test.m) in MATLAB.
+Just download the code and run [QC2QP_SDR_optimalityGap_test.m](https://github.com/Sheng-Cheng/QC2QP-SDR-Optimality-Gap-Test/blob/master/QC2QP_SDR_optimalityGap_test.m) in MATLAB.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ The QC2QP problem has the following form:
 
 [image1]: https://github.com/Sheng-Cheng/QC2QP-Strong-Duality-Test/blob/master/images/optimization%20problem.png "QC2QP problem"
 
-To run the semi-definite relaxation tightness test, all the coefficients in the quadratic objective function and quadratic constraints are written in the homogeneous form, i.e., 
+To run the optimality gap test, all the coefficients in the quadratic objective function and quadratic constraints are written in the homogeneous form, i.e., 
 
 ![alt text][image2]
 
@@ -31,16 +31,16 @@ Note that the test requires **Slater's condition to hold for the (primal) proble
 
 ### Syntax
 
-`status = QC2QP_SDR_tightness_test(M0,M1,M2)` <br />
-`status = QC2QP_SDR_tightness_test(M0,M1,M2,epsilon2)` <br />
-`status = QC2QP_SDR_tightness_test(M0,M1,M2,epsilon2,verbosity)` <br />
+`status = QC2QP_SDR_optimalityGap_test(M0,M1,M2)` <br />
+`status = QC2QP_SDR_optimalityGap_test(M0,M1,M2,epsilon2)` <br />
+`status = QC2QP_SDR_optimalityGap_test(M0,M1,M2,epsilon2,verbosity)` <br />
 
 ### Description
-`status = QC2QP_SDR_tightness_test(M0,M1,M2)` returns the status whether the QC2QP (specified by the problem data `M0`, `M1`, and `M2`) has a tight semi-definite relaxation. The output is a struct that contains fields regarding the solutions of hte semi-definite relaxation and the Lagrange dual of the QC2QP (see details in the section 'Output arguments'). 
+`status = QC2QP_SDR_optimalityGap_test(M0,M1,M2)` returns the status whether the QC2QP (specified by the problem data `M0`, `M1`, and `M2`) has no optimality gap. The output is a struct that contains fields regarding the solutions of the semi-definite relaxation and the Lagrange dual of the QC2QP (see details in the section 'Output arguments'). 
 
-`status = QC2QP_SDR_tightness_test(M0,M1,M2,epsilon2)` defines the tolerance to use in the rank computation. For example, the rank of a matrix A is the number of singular values of A that are greater than `epsilon2`. 
+`status = QC2QP_SDR_optimalityGap_test(M0,M1,M2,epsilon2)` defines the tolerance to use in the rank computation. For example, the rank of a matrix A is the number of singular values of A that are greater than `epsilon2`. 
 
-`status = QC2QP_SDR_tightness_test(M0,M1,M2,epsilon2,verbosity)` selects the verbosity of the function. When `verbosity` is set to 1, complete output messages from the solvers CVX and fmincon will be displayed in the command window. When `verbosity` is set to 0, all the solver messages are muted. 
+`status = QC2QP_SDR_optimalityGap_test(M0,M1,M2,epsilon2,verbosity)` selects the verbosity of the function. When `verbosity` is set to 1, complete output messages from the solvers CVX and fmincon will be displayed in the command window. When `verbosity` is set to 0, all the solver messages are muted. 
 
 ### Example
 
@@ -56,15 +56,15 @@ In this case, the input arguments `M0`, `M1`, and `M2` are in the homogeneous qu
 
 [image4]: https://github.com/Sheng-Cheng/QC2QP-Strong-Duality-Test/blob/master/images/Example%20homogeneous%20data.png "Example data"
 
-Run the test with default tolerance `epsilon2` = 1e-5 and the verbosity option, <br />`status = QC2QP_SDR_tightness_test(M0,M1,M2,[],1);` <br /> we get the following messages:
+Run the test with default tolerance `epsilon2` = 1e-5 and the verbosity option, <br />`status = QC2QP_SDR_optimalityGap_test(M0,M1,M2,[],1);` <br /> we get the following messages:
 
 ![alt text][image5]
 
 [image5]: https://github.com/Sheng-Cheng/QC2QP-Strong-Duality-Test/blob/master/images/MATLAB%20output%20message.png "MATLAB output message"
 
-We can tell that the semi-definite relaxation is tight by examing the value of `status.tightRelaxation` which is 1 in this case. To verify this result, we can examine that the primal optimal value `status.primal_optval` and the optimal value of the semidefinite relaxation `status.SP_optval` both equal -9.603839.
+We can tell that there is no optimality gap by examing the value of `status.noOptimalityGap` which is 1 in this case. To verify this result, we can examine that the primal optimal value `status.primal_optval` and the optimal value of the semidefinite relaxation `status.SP_optval` both equal -9.603839.
 
-Try the [QC2QP\_SDR_tightness\_test\_example.m](https://github.com/Sheng-Cheng/QC2QP-Strong-Duality-Test/blob/master/QC2QP_SDR_tightness_test.m) to get familiar with the test. In this script, we provide 10 groups of sample problem data for users to get a taste. Just uncomment any group of data you want to try and hit 'run'.
+Try the [QC2QP\_SDR_optimalityGap\_test\_example.m](https://github.com/Sheng-Cheng/QC2QP-Strong-Duality-Test/blob/master/QC2QP_SDR_tightness_test.m) to get familiar with the test. In this script, we provide 10 groups of sample problem data for users to get a taste. Just uncomment any group of data you want to try and hit 'run'.
 
 ### Input arguments
 `M0` &mdash; coefficients of the objective function in the homogeneous form. The matrix `M0` must be real and symmetric.
@@ -81,7 +81,7 @@ The output is a struct which contains the following fields:
 * `epsilon2` &mdash; tolerance for the rank computation
 * `SlaterSP` &mdash; indicator for whether Slater's condition holds for the semidefinite relaxation (SP). 1 for holding and 0 for not.
 * `SlaterSD` &mdash; indicator for whether Slater's condition holds for the dual problem (SD). 1 for holding and 0 for not.
-* `tightRelaxation` &mdash; indicator for whether the semidefinite relaxation is tight. 1 for tight, 0 for loose, and NaN for undetermined.
+* `noOptimalityGap` &mdash; indicator of whether there exists an optimality gap. 1 for no optimality gap, 0 for optimality gap, and NaN for undetermined.
 * `exception.code` &mdash; indicator for whether an exception appears:
   * `0` for no exception;
   * `1` for problem ill-posed;
@@ -107,7 +107,7 @@ If the problem data yield Slater's condition holding for both (SP) and (SD), the
 * `rank_X` &mdash; rank of the solution to (SP) with tolerance epsilon2
 * `rank_Z` &mdash; rank of the solution to (SD) with tolerance epsilon2
 
-If the problem data yield a tight relaxation, then the following fields are included.
+If the problem data yield no optimality gap, then the following fields are included.
 
 * `primal_optval` &mdash; optimal value of the primal problem
 * `primal_optsol` &mdash; optimal solution of the primal problem
@@ -128,9 +128,9 @@ The dataset is stored in the file [QC2QP_dataset.mat](https://github.com/Sheng-C
 
 We take the two-dimensional instances 'dim2' for illustration. Under this field, there are 
 * `instance` &mdash; a cell variable that stores the randomly generated feasible nonconvex instances accessible by `QC2QP_dataset.dim2.instance{k}` for k from 1 to 1000.
-* `tightRelaxationIndex` &mdash; a vector that provides the indicator of tight semi-definite relaxation for each instance, e.g., the k-th element of this vector being 1 indicates that the instance specified by `QC2QP_dataset.dim2.instance{k}.M0`, `QC2QP_dataset.dim2.instance{k}.M1`, and `QC2QP_dataset.dim2.instance{k}.M2` has a tight semi-definite relaxation; and being 0 indicates the opposite. <br />
+* `tightRelaxationIndex` &mdash; a vector that provides the indicator of no optimality gap for each instance, e.g., the k-th element of this vector being 1 indicates that the instance specified by `QC2QP_dataset.dim2.instance{k}.M0`, `QC2QP_dataset.dim2.instance{k}.M1`, and `QC2QP_dataset.dim2.instance{k}.M2` has no optimality gap; and being 0 indicates the opposite. <br />
 
-For the convenience of screening, each instance contains its own tightness indicator, e.g., `QC2QP_dataset.dim2.instance{k}.tightRelaxation` being 1 means the semi-definite relaxation is tight for this instance and 0 otherwise.
+For the convenience of screening, each instance contains its own optimality gap indicator, e.g., `QC2QP_dataset.dim2.instance{k}.noOptimalityGap` being 1 means that there is no optimality gap in this instance and 0 otherwise.
 
 ---
 
