@@ -128,7 +128,7 @@ The dataset is stored in the file [QC2QP_dataset.mat](https://github.com/Sheng-C
 
 We take the two-dimensional instances 'dim2' for illustration. Under this field, there are 
 * `instance` &mdash; a cell variable that stores the randomly generated feasible nonconvex instances accessible by `QC2QP_dataset.dim2.instance{k}` for k from 1 to 1000.
-* `tightRelaxationIndex` &mdash; a vector that provides the indicator of no optimality gap for each instance, e.g., the k-th element of this vector being 1 indicates that the instance specified by `QC2QP_dataset.dim2.instance{k}.M0`, `QC2QP_dataset.dim2.instance{k}.M1`, and `QC2QP_dataset.dim2.instance{k}.M2` has no optimality gap; and being 0 indicates the opposite. <br />
+* `noOptimalityGapIndex` &mdash; a vector that provides the indicator of no-optimality-gap for each instance, e.g., the k-th element of this vector being 1 indicates that the instance specified by `QC2QP_dataset.dim2.instance{k}.M0`, `QC2QP_dataset.dim2.instance{k}.M1`, and `QC2QP_dataset.dim2.instance{k}.M2` has no optimality gap; and being 0 indicates the opposite. <br />
 
 For the convenience of screening, each instance contains its own optimality gap indicator, e.g., `QC2QP_dataset.dim2.instance{k}.noOptimalityGap` being 1 means that there is no optimality gap in this instance and 0 otherwise.
 
