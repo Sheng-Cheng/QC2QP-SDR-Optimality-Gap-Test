@@ -18,13 +18,13 @@ The QC2QP problem has the following form:
 
 ![alt text][image1]
 
-[image1]: https://github.com/Sheng-Cheng/QC2QP-Strong-Duality-Test/blob/master/images/optimization%20problem.png "QC2QP problem"
+[image1]: https://github.com/Sheng-Cheng/QC2QP-SDR-Optimality-Gap-Test/blob/master/images/optimization%20problem.png "QC2QP problem"
 
 To run the optimality gap test, all the coefficients in the quadratic objective function and quadratic constraints are written in the homogeneous form, i.e., 
 
 ![alt text][image2]
 
-[image2]: https://github.com/Sheng-Cheng/QC2QP-Strong-Duality-Test/blob/master/images/homogeneous%20quadratic%20form.png "Homogeneous quadratic form"
+[image2]: https://github.com/Sheng-Cheng/QC2QP-SDR-Optimality-Gap-Test/blob/master/images/homogeneous%20quadratic%20form.png "Homogeneous quadratic form"
 
 Note that the test requires **Slater's condition to hold for the (primal) problem and its dual problem**. If the problem data does not meet Slater's condition for either the (primal) problem or the dual problem, then the test will abort and throw an alert.
 
@@ -48,23 +48,23 @@ Consider the following problem:
 
 ![alt text][image3]
 
-[image3]: https://github.com/Sheng-Cheng/QC2QP-Strong-Duality-Test/blob/master/images/Example%20problem.png "Example problem"
+[image3]: https://github.com/Sheng-Cheng/QC2QP-SDR-Optimality-Gap-Test/blob/master/images/Example%20problem.png "Example problem"
 
 In this case, the input arguments `M0`, `M1`, and `M2` are in the homogeneous quadratic form:
 
 ![alt text][image4]
 
-[image4]: https://github.com/Sheng-Cheng/QC2QP-Strong-Duality-Test/blob/master/images/Example%20homogeneous%20data.png "Example data"
+[image4]: https://github.com/Sheng-Cheng/QC2QP-SDR-Optimality-Gap-Test/blob/master/images/Example%20homogeneous%20data.png "Example data"
 
 Run the test with default tolerance `epsilon2` = 1e-5 and the verbosity option, <br />`status = QC2QP_SDR_optimalityGap_test(M0,M1,M2,[],1);` <br /> we get the following messages:
 
 ![alt text][image5]
 
-[image5]: https://github.com/Sheng-Cheng/QC2QP-Strong-Duality-Test/blob/master/images/MATLAB%20output%20message.png "MATLAB output message"
+[image5]: https://github.com/Sheng-Cheng/QC2QP-SDR-Optimality-Gap-Test/blob/master/images/MATLAB%20output%20message.png "MATLAB output message"
 
 We can tell that there is no optimality gap by examing the value of `status.noOptimalityGap` which is 1 in this case. To verify this result, we can examine that the primal optimal value `status.primal_optval` and the optimal value of the semidefinite relaxation `status.SP_optval` both equal -9.603839.
 
-Try the [QC2QP\_SDR_optimalityGap\_test\_example.m](https://github.com/Sheng-Cheng/QC2QP-Strong-Duality-Test/blob/master/QC2QP_SDR_tightness_test.m) to get familiar with the test. In this script, we provide 10 groups of sample problem data for users to get a taste. Just uncomment any group of data you want to try and hit 'run'.
+Try the [QC2QP\_SDR_optimalityGap\_test\_example.m](https://github.com/Sheng-Cheng/QC2QP-SDR-Optimality-Gap-Test/blob/master/QC2QP_SDR_tightness_test.m) to get familiar with the test. In this script, we provide 10 groups of sample problem data for users to get a taste. Just uncomment any group of data you want to try and hit 'run'.
 
 ### Input arguments
 `M0` &mdash; coefficients of the objective function in the homogeneous form. The matrix `M0` must be real and symmetric.
@@ -120,11 +120,11 @@ The dataset contains QC2QP instances of dimension n from 2 to 7. Each dimension 
 
 ## Explanation
 
-The dataset is stored in the file [QC2QP_dataset.mat](https://github.com/Sheng-Cheng/QC2QP-Strong-Duality-Test/blob/master/QC2QP_dataset.mat), which contains the variable QC2QP_dataset. Under QC2QP_dataset, there are 5 fields corresponding to the instances in each dimension.
+The dataset is stored in the file [QC2QP_dataset.mat](https://github.com/Sheng-Cheng/QC2QP-SDR-Optimality-Gap-Test/blob/master/QC2QP_dataset.mat), which contains the variable QC2QP_dataset. Under QC2QP_dataset, there are 5 fields corresponding to the instances in each dimension.
 
 ![alt text][image6]
 
-[image6]: https://github.com/Sheng-Cheng/QC2QP-Strong-Duality-Test/blob/master/images/field_dim.png "QC2QP_dataset"
+[image6]: https://github.com/Sheng-Cheng/QC2QP-SDR-Optimality-Gap-Test/blob/master/images/field_dim.png "QC2QP_dataset"
 
 We take the two-dimensional instances 'dim2' for illustration. Under this field, there are 
 * `instance` &mdash; a cell variable that stores the randomly generated feasible nonconvex instances accessible by `QC2QP_dataset.dim2.instance{k}` for k from 1 to 1000.
