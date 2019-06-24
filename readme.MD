@@ -64,7 +64,7 @@ Run the test with default tolerance `epsilon2` = 1e-5 and the verbosity option, 
 
 We can tell that there is no optimality gap by examing the value of `status.noOptimalityGap` which is 1 in this case. To verify this result, we can examine that the primal optimal value `status.primal_optval` and the optimal value of the semidefinite relaxation `status.SP_optval` both equal -9.603839.
 
-Try the [QC2QP\_SDR_optimalityGap\_test\_example.m](https://github.com/Sheng-Cheng/QC2QP-SDR-Optimality-Gap-Test/blob/master/QC2QP_SDR_tightness_test.m) to get familiar with the test. In this script, we provide 10 groups of sample problem data for users to get a taste. Just uncomment any group of data you want to try and hit 'run'.
+Try the [QC2QP\_SDR_optimalityGap\_test\_example.m](https://github.com/Sheng-Cheng/QC2QP-SDR-Optimality-Gap-Test/blob/master/QC2QP_SDR_optimalityGap_test_example.m) to get familiar with the test. In this script, we provide 10 groups of sample problem data for users to get a taste. Just uncomment any group of data you want to try and hit 'run'.
 
 ### Input arguments
 `M0` &mdash; coefficients of the objective function in the homogeneous form. The matrix `M0` must be real and symmetric.
