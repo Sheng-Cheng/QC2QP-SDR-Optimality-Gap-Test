@@ -3,12 +3,14 @@ This is a MATLAB script for testing whether a quadratic program with two quadrat
 [An Optimality Gap Test for a Semidefinite Relaxation of a Quadratic Program with Two Quadratic Constraints](https://arxiv.org/abs/1907.02989)<br />
 
 If you think this test is helpful to your research/application, please cite:<br />
-@article{cheng2019optimalitygap,<br />
-  title={An Optimality Gap Test for a Semidefinite Relaxation of a Quadratic Program with Two Quadratic Constraints},<br />
-  author={Cheng, Sheng and Martins, Nuno C},<br />
-  journal={arXiv preprint arXiv:1907.02989},<br />
-  year={2019}<br />
+```
+@article{cheng2019optimalitygap,
+  title={An Optimality Gap Test for a Semidefinite Relaxation of a Quadratic Program with Two Quadratic Constraints},
+  author={Cheng, Sheng and Martins, Nuno C},
+  journal={arXiv preprint arXiv:1907.02989},
+  year={2019}
 }
+```
 
 ## How to use this test
 
