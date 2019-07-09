@@ -1,7 +1,14 @@
 # QC2QP-Semidefinite-Relaxation-Optimality-Gap-Test
-This is a MATLAB script for testing whether a quadratic program with two quadratic constraints (QC2QP) can be solved by its semidefinite relaxation, in which case we say there is no optimality gap. The details of this test and the methematical proof behind can be found here:
+This is a MATLAB script for testing whether a quadratic program with two quadratic constraints (QC2QP) can be solved using its semidefinite relaxation, in which case we say there is no optimality gap. The details of this test and the methematical proof behind can be found here:<br />
+[An Optimality Gap Test for a Semidefinite Relaxation of a Quadratic Program with Two Quadratic Constraints](https://arxiv.org/abs/1907.02989)<br />
 
-Please cite (pending)
+If you think this test is helpful to your research/application, please cite:<br />
+@article{cheng2019optimalitygap,<br />
+  title={An Optimality Gap Test for a Semidefinite Relaxation of a Quadratic Program with Two Quadratic Constraints},<br />
+  author={Cheng, Sheng and Martins, Nuno C},<br />
+  journal={arXiv preprint arXiv:1907.02989},<br />
+  year={2019}<br />
+}
 
 ## How to use this test
 
