@@ -6,7 +6,7 @@ If you think this test is helpful to your research/application, please cite:<br 
 ```
 @article{cheng2019optimalitygap,
   title={An Optimality Gap Test for a Semidefinite Relaxation of a Quadratic Program with Two Quadratic Constraints},
-  author={Cheng, Sheng and Martins, Nuno C},
+  author={Cheng, Sheng and Martins, Nuno C.},
   journal={arXiv preprint arXiv:1907.02989},
   year={2019}
 }
