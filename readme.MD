@@ -125,7 +125,7 @@ If the problem data yield no optimality gap, then the following fields are inclu
 
 # Dataset
 
-The dataset contains QC2QP instances of dimension n from 2 to 7. Each dimension contains 1000 randomly generated feasible nonconvex QC2QP instances.
+The dataset contains QC2QP instances of dimension n from 2 to 7. Each dimension contains 1000 randomly generated feasible nonconvex QC2QP instances. See [Numerical experiment.pdf](https://github.com/Sheng-Cheng/QC2QP-SDR-Optimality-Gap-Test/blob/master/Numerical%20experiment.pdf) for the details of data generation and results of the experiment.
 
 ## Explanation
 
